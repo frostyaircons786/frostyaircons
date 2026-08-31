@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ChevronDown, Clock, Facebook, Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react";
+import {
+  ChevronDown,
+  Clock,
+  Facebook,
+  Instagram,
+  Mail,
+  MapPin,
+  Phone,
+  Youtube,
+} from "lucide-react";
 import { FanIcon, WhatsAppGlyph } from "./brand";
 import {
   BUSINESS,
@@ -68,12 +77,7 @@ export function Footer() {
         </div>
 
         {/* Services */}
-        <FooterColumn
-          title="Our Services"
-          id="services"
-          openCol={openCol}
-          setOpenCol={setOpenCol}
-        >
+        <FooterColumn title="Our Services" id="services" openCol={openCol} setOpenCol={setOpenCol}>
           <ul className="space-y-2.5 text-sm text-slate-100">
             {SERVICES.map((s) => (
               <li key={s.slug}>
@@ -162,7 +166,18 @@ export function Footer() {
       <div className="border-t border-white/15">
         <div className="container-page flex flex-col gap-2 py-5 text-xs text-slate-200 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Frosty Aircons AC Repair and Service, Vadodara.</p>
-          <p>GST-compliant invoices · 30-day service warranty on repairs</p>
+          <p>
+            Designed by{" "}
+            <a
+              href="https://apfpuniversal.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-1 underline-offset-2 hover:text-amber-200"
+            >
+              APFP Universal
+            </a>{" "}
+            · GST-compliant invoices · 30-day service warranty on repairs
+          </p>
         </div>
       </div>
     </footer>

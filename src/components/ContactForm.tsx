@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { toast } from "sonner";
-import { SERVICES, LOCATIONS } from "@/lib/business";
+import { SERVICES, LOCATIONS, WHATSAPP_NUMBER } from "@/lib/business";
 
 export function ContactForm() {
   const [submitting, setSubmitting] = useState(false);
@@ -11,13 +10,26 @@ export function ContactForm() {
       onSubmit={(e) => {
         e.preventDefault();
         setSubmitting(true);
-        setTimeout(() => {
-          setSubmitting(false);
-          (e.target as HTMLFormElement).reset();
-          toast.success("Request received", {
-            description: "Our team will call you back shortly. For urgent jobs, please call us.",
-          });
-        }, 500);
+        const fd = new FormData(e.target as HTMLFormElement);
+        const name = fd.get("name") || "";
+        const phone = fd.get("phone") || "";
+        const area = fd.get("area") || "";
+        const service = fd.get("service") || "";
+        const message = fd.get("message") || "";
+
+        const lines = [
+          `Hi, I need AC service`,
+          ``,
+          `*Name:* ${name}`,
+          `*Phone:* ${phone}`,
+          `*Area:* ${area}`,
+          `*Service:* ${service}`,
+          message ? `*Problem:* ${message}` : "",
+        ].filter(Boolean);
+
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+        setSubmitting(false);
       }}
     >
       <div className="grid gap-4 sm:grid-cols-2">
@@ -72,12 +84,12 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="mt-1 inline-flex items-center justify-center rounded-md bg-accent px-6 py-3 font-[family-name:var(--font-display)] font-bold text-accent-foreground shadow-cta transition-transform hover:-translate-y-0.5 disabled:opacity-70"
+        className="mt-1 inline-flex items-center justify-center rounded-md bg-[#25D366] px-6 py-3 font-[family-name:var(--font-display)] font-bold text-white shadow-cta transition-transform hover:-translate-y-0.5 disabled:opacity-70"
       >
-        {submitting ? "Sending…" : "Request a callback"}
+        {submitting ? "Opening WhatsApp…" : "Send on WhatsApp"}
       </button>
       <p className="text-xs text-muted-foreground">
-        We only use your number to schedule the visit. No spam calls, ever.
+        You will be redirected to WhatsApp with your details pre-filled. No spam, ever.
       </p>
     </form>
   );
