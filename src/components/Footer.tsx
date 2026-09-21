@@ -16,6 +16,7 @@ import {
   FULL_ADDRESS,
   LOCATIONS,
   MAP_EMBED_SRC,
+  GOOGLE_MAPS_LISTING_URL,
   PHONE_DISPLAY,
   SERVICES,
   TEL_URL,
@@ -148,6 +149,14 @@ export function Footer() {
               style={{ border: 0 }}
             />
           </div>
+          <a
+            href={GOOGLE_MAPS_LISTING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-block text-sm font-semibold text-amber-300 underline decoration-2 underline-offset-4"
+          >
+            View on Google Maps →
+          </a>
           <div className="mt-4 flex gap-2">
             {[Facebook, Instagram, Youtube].map((Icon, i) => (
               <a

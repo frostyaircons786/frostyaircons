@@ -5,8 +5,8 @@ import { Reveal } from "@/components/Reveal";
 import { CallButton, WhatsAppButton } from "@/components/ActionButtons";
 import { ContactForm } from "@/components/ContactForm";
 import { MapEmbed, Section } from "@/components/sections";
-import { BUSINESS, FULL_ADDRESS, PHONE_DISPLAY, PHONE_RAW, WHATSAPP_URL } from "@/lib/business";
-import { pageMeta } from "@/lib/seo";
+import { BUSINESS, FULL_ADDRESS, GOOGLE_MAPS_LISTING_URL, PHONE_DISPLAY, PHONE_RAW, WHATSAPP_URL } from "@/lib/business";
+import { pageMeta, canonicalLink } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
@@ -17,6 +17,9 @@ export const Route = createFileRoute("/contact")({
         "Call or WhatsApp Frosty Aircons for same-day AC repair in Vadodara. Visit us at Waghodia Road or request a callback online.",
       path: "/contact",
     }),
+    links: [
+      canonicalLink("/contact"),
+    ],
   }),
 });
 
@@ -61,13 +64,18 @@ function Contact() {
                 </p>
                 <p className="mt-1 text-sm text-ink-soft">Chat with our team</p>
               </a>
-              <div className="rounded-lg border border-border bg-card p-5 shadow-card">
+              <a
+                href={GOOGLE_MAPS_LISTING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-lg border border-border bg-card p-5 shadow-card transition-colors hover:border-primary/30"
+              >
                 <MapPin className="h-6 w-6 text-primary" />
                 <p className="mt-3 font-[family-name:var(--font-display)] font-bold text-ink">
                   Address
                 </p>
                 <p className="mt-1 text-sm text-ink-soft">{FULL_ADDRESS}</p>
-              </div>
+              </a>
               <div className="rounded-lg border border-border bg-card p-5 shadow-card">
                 <Clock className="h-6 w-6 text-primary" />
                 <p className="mt-3 font-[family-name:var(--font-display)] font-bold text-ink">
@@ -99,6 +107,14 @@ function Contact() {
         </Reveal>
         <div className="mt-6">
           <MapEmbed title="Frosty Aircons service centre location on Google Maps" />
+          <a
+            href={GOOGLE_MAPS_LISTING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-block text-sm font-semibold text-primary underline decoration-2 underline-offset-4"
+          >
+            View on Google Maps →
+          </a>
         </div>
       </Section>
     </>

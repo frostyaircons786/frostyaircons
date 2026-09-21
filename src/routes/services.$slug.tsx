@@ -13,7 +13,7 @@ import {
   Testimonials,
 } from "@/components/sections";
 import { LOCATIONS, PHONE_DISPLAY, PHONE_RAW, SERVICES } from "@/lib/business";
-import { pageMeta, serviceSchema } from "@/lib/seo";
+import { pageMeta, serviceSchema, canonicalLink } from "@/lib/seo";
 import { ServiceIcon } from "@/components/ServiceIcon";
 
 export const Route = createFileRoute("/services/$slug")({
@@ -28,6 +28,9 @@ export const Route = createFileRoute("/services/$slug")({
       : "Book AC services in Vadodara with Frosty Aircons.";
     return {
       meta: pageMeta({ title, description, path: `/services/${params.slug}` }),
+      links: [
+        canonicalLink(`/services/${params.slug}`),
+      ],
       scripts: service
         ? [
             {
@@ -36,7 +39,7 @@ export const Route = createFileRoute("/services/$slug")({
                 serviceSchema({
                   name: service.h1Keyword,
                   description,
-                  url: `https://frostyaircons.in/services/${service.slug}`,
+                  url: `https://frostyaircons.com/services/${service.slug}`,
                 }),
               ),
             },

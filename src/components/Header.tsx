@@ -31,7 +31,7 @@ export function Header() {
             <p className="opacity-90">
               Same-day AC repair across Vadodara · Open Mon–Sun, 8 AM – 9 PM
             </p>
-            <p className="opacity-90">Waghodia Road, Vadodara 390016</p>
+            <p className="opacity-90">Waghodia Road, Jalram Nagar, Vadodara 390016</p>
           </div>
         </div>
 

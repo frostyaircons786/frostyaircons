@@ -1,10 +1,12 @@
 import { BUSINESS, PHONE_DISPLAY } from "./business";
 
+const SITE_URL = "https://frostyaircons.com";
+
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "HVACBusiness",
   name: BUSINESS.name,
-  image: "/fan-icon.png",
+  image: "/frosty-logo.png",
   telephone: PHONE_DISPLAY,
   email: BUSINESS.email,
   priceRange: "₹₹",
@@ -80,13 +82,18 @@ export function pageMeta(opts: {
   path: string;
   type?: string;
 }) {
+  const fullUrl = `${SITE_URL}${opts.path}`;
   return [
     { title: opts.title },
     { name: "description", content: opts.description },
     { property: "og:title", content: opts.title },
     { property: "og:description", content: opts.description },
     { property: "og:type", content: opts.type ?? "website" },
-    { property: "og:url", content: opts.path },
+    { property: "og:url", content: fullUrl },
     { name: "twitter:card", content: "summary_large_image" },
   ];
+}
+
+export function canonicalLink(path: string) {
+  return { rel: "canonical", href: `${SITE_URL}${path}` };
 }

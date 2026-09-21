@@ -32,13 +32,13 @@ export function WhatsAppGlyph({ className = "" }: { className?: string }) {
 export function Logo({ inverted = false }: { inverted?: boolean }) {
   return (
     <Link to="/" className="group flex items-center gap-2.5" aria-label="Frosty Aircons home">
-      <span
-        className={`grid h-10 w-10 place-items-center rounded-md ${
-          inverted ? "bg-white/10 text-white" : "bg-primary-soft text-primary-deep"
-        }`}
-      >
-        <FanIcon className="fan-spin-hover h-6 w-6" />
-      </span>
+      <img
+        src="/frosty-logo.png"
+        alt="Frosty Aircons - AC Repair and Service in Vadodara"
+        className="h-10 w-auto object-contain"
+        width={40}
+        height={40}
+      />
       <span className="leading-none">
         <span
           className={`block font-[family-name:var(--font-display)] text-lg font-bold tracking-tight ${

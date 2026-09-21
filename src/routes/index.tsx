@@ -23,8 +23,8 @@ import {
   StatsStrip,
   Testimonials,
 } from "@/components/sections";
-import { BRANDS, BUSINESS, PHONE_DISPLAY, PHONE_RAW, SERVICES } from "@/lib/business";
-import { localBusinessSchema, pageMeta } from "@/lib/seo";
+import { BRANDS, BUSINESS, GOOGLE_MAPS_LISTING_URL, PHONE_DISPLAY, PHONE_RAW, SERVICES } from "@/lib/business";
+import { localBusinessSchema, pageMeta, canonicalLink } from "@/lib/seo";
 
 import heroImage from "@/assets/hero-technician.jpg";
 import serviceImage from "@/assets/ac-repair-service.jpg";
@@ -38,6 +38,9 @@ export const Route = createFileRoute("/")({
         "Same-day AC repair, service and gas filling in Vadodara. Split, window, cassette and ductable units. Call Frosty Aircons for transparent pricing and 30-day warranty.",
       path: "/",
     }),
+    links: [
+      canonicalLink("/"),
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -299,6 +302,14 @@ function Index() {
 
             <div className="mt-8">
               <MapEmbed title="Frosty Aircons location on Google Maps" />
+              <a
+                href={GOOGLE_MAPS_LISTING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-block text-sm font-semibold text-primary underline decoration-2 underline-offset-4"
+              >
+                View on Google Maps →
+              </a>
             </div>
           </Reveal>
 

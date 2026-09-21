@@ -6,7 +6,7 @@ import { CallButton, WhatsAppButton } from "@/components/ActionButtons";
 import { ContactForm } from "@/components/ContactForm";
 import { MapEmbed, Section, ServicesGrid, Testimonials } from "@/components/sections";
 import { LOCATIONS, PHONE_DISPLAY, PHONE_RAW } from "@/lib/business";
-import { pageMeta, serviceSchema } from "@/lib/seo";
+import { pageMeta, serviceSchema, canonicalLink } from "@/lib/seo";
 
 export const Route = createFileRoute("/locations/$slug")({
   component: LocationPage,
@@ -20,6 +20,9 @@ export const Route = createFileRoute("/locations/$slug")({
       : "Same-day AC repair and service in Vadodara.";
     return {
       meta: pageMeta({ title, description, path: `/locations/${params.slug}` }),
+      links: [
+        canonicalLink(`/locations/${params.slug}`),
+      ],
       scripts: location
         ? [
             {
@@ -29,7 +32,7 @@ export const Route = createFileRoute("/locations/$slug")({
                   name: `AC Repair in ${location.name}`,
                   description,
                   areaName: location.name,
-                  url: `https://frostyaircons.in/locations/${location.slug}`,
+                  url: `https://frostyaircons.com/locations/${location.slug}`,
                 }),
               ),
             },

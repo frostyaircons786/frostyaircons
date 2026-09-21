@@ -17,7 +17,7 @@ export const BUSINESS = {
   name: "Frosty Aircons AC Repair and Service",
   shortName: "Frosty Aircons",
   email: "Frostyaircons786@gmail.com",
-  street: "GF 04, Nand Bunglow, Opp Sukan 2, Waghodia Road",
+  street: "A-04, Nand Bungalow, Waghodia Rd, opp. Sukan 2, Vrajraj Society, Jalram Nagar, Madhavpura",
   city: "Vadodara",
   state: "Gujarat",
   postalCode: "390016",
@@ -32,6 +32,9 @@ export const MAP_EMBED_SRC =
   "https://www.google.com/maps?q=" +
   encodeURIComponent(`${BUSINESS.street}, Vadodara 390016, Gujarat, India`) +
   "&output=embed";
+
+export const GOOGLE_MAPS_LISTING_URL =
+  "https://share.google/8O5Mf6LsbnoAGhahn";
 
 export type Service = {
   slug: string;

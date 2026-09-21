@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { CtaBand, Eyebrow, Section } from "@/components/sections";
 import { LOCATIONS, ZONES } from "@/lib/business";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, canonicalLink } from "@/lib/seo";
 
 export const Route = createFileRoute("/locations/")({
   component: LocationsIndex,
@@ -14,6 +14,9 @@ export const Route = createFileRoute("/locations/")({
         "Frosty Aircons provides AC repair, service and gas filling across all zones of Vadodara. Find your locality and book a same-day visit.",
       path: "/locations",
     }),
+    links: [
+      canonicalLink("/locations"),
+    ],
   }),
 });
 

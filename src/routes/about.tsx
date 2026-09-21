@@ -3,7 +3,7 @@ import { Award, CheckCircle, Shield, Users, Wrench } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
 import { CtaBand, Eyebrow, Section } from "@/components/sections";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, canonicalLink } from "@/lib/seo";
 import serviceImage from "@/assets/ac-repair-service.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -15,6 +15,9 @@ export const Route = createFileRoute("/about")({
         "Learn about Frosty Aircons — Vadodara's trusted AC repair and service team. Trained technicians, genuine spares, transparent pricing and 30-day warranty.",
       path: "/about",
     }),
+    links: [
+      canonicalLink("/about"),
+    ],
   }),
 });
 
