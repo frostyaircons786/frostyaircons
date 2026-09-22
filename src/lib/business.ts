@@ -23,18 +23,16 @@ export const BUSINESS = {
   postalCode: "390016",
   country: "IN",
   hours: "Mon – Sun, 8:00 AM – 9:00 PM",
-  geo: { lat: 22.3125, lng: 73.2135 },
+  geo: { lat: 22.3039715, lng: 73.2365003 },
 } as const;
 
 export const FULL_ADDRESS = `${BUSINESS.street}, ${BUSINESS.city} ${BUSINESS.postalCode}`;
 
 export const MAP_EMBED_SRC =
-  "https://www.google.com/maps?q=" +
-  encodeURIComponent(`${BUSINESS.street}, Vadodara 390016, Gujarat, India`) +
-  "&output=embed";
+  `https://www.google.com/maps?q=${BUSINESS.geo.lat},${BUSINESS.geo.lng}&z=17&output=embed`;
 
 export const GOOGLE_MAPS_LISTING_URL =
-  "https://share.google/8O5Mf6LsbnoAGhahn";
+  "https://maps.app.goo.gl/e5itCSQVZgcqTo6k8";
 
 export type Service = {
   slug: string;

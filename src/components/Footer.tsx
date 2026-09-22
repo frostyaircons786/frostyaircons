@@ -48,7 +48,14 @@ export function Footer() {
           <ul className="mt-5 space-y-2.5 text-sm text-slate-100">
             <li className="flex gap-2.5">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-slate-200" />
-              <span>{FULL_ADDRESS}</span>
+              <a
+                href={GOOGLE_MAPS_LISTING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-amber-200 transition-colors"
+              >
+                {FULL_ADDRESS}
+              </a>
             </li>
             <li className="flex gap-2.5">
               <Phone className="mt-0.5 h-4 w-4 shrink-0 text-slate-200" />
@@ -138,7 +145,13 @@ export function Footer() {
           <h3 className="font-[family-name:var(--font-display)] text-sm font-bold uppercase tracking-widest text-white">
             Find Us
           </h3>
-          <div className="mt-4 overflow-hidden rounded-lg border border-white/15">
+          <a
+            href={GOOGLE_MAPS_LISTING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 block overflow-hidden rounded-lg border border-white/15"
+            aria-label="Open Frosty Aircons on Google Maps"
+          >
             <iframe
               title="Frosty Aircons location on Google Maps, Waghodia Road Vadodara"
               src={MAP_EMBED_SRC}
@@ -146,9 +159,9 @@ export function Footer() {
               height="210"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              style={{ border: 0 }}
+              style={{ border: 0, pointerEvents: "none" }}
             />
-          </div>
+          </a>
           <a
             href={GOOGLE_MAPS_LISTING_URL}
             target="_blank"

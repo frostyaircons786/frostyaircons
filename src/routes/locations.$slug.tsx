@@ -5,7 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import { CallButton, WhatsAppButton } from "@/components/ActionButtons";
 import { ContactForm } from "@/components/ContactForm";
 import { MapEmbed, Section, ServicesGrid, Testimonials } from "@/components/sections";
-import { LOCATIONS, PHONE_DISPLAY, PHONE_RAW } from "@/lib/business";
+import { LOCATIONS, GOOGLE_MAPS_LISTING_URL, PHONE_DISPLAY, PHONE_RAW } from "@/lib/business";
 import { pageMeta, serviceSchema, canonicalLink } from "@/lib/seo";
 
 export const Route = createFileRoute("/locations/$slug")({

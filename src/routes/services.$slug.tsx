@@ -12,7 +12,7 @@ import {
   Section,
   Testimonials,
 } from "@/components/sections";
-import { LOCATIONS, PHONE_DISPLAY, PHONE_RAW, SERVICES } from "@/lib/business";
+import { LOCATIONS, GOOGLE_MAPS_LISTING_URL, PHONE_DISPLAY, PHONE_RAW, SERVICES } from "@/lib/business";
 import { pageMeta, serviceSchema, canonicalLink } from "@/lib/seo";
 import { ServiceIcon } from "@/components/ServiceIcon";
 

@@ -4,7 +4,7 @@ import { ChevronDown, Minus, Star } from "lucide-react";
 import { Reveal, Counter } from "./Reveal";
 import { CallButton, WhatsAppButton } from "./ActionButtons";
 import { FanIcon } from "./brand";
-import { LOCATIONS, MAP_EMBED_SRC, SERVICES } from "@/lib/business";
+import { LOCATIONS, MAP_EMBED_SRC, SERVICES, GOOGLE_MAPS_LISTING_URL } from "@/lib/business";
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
@@ -219,7 +219,13 @@ export function CtaBand({
 
 export function MapEmbed({ title }: { title: string }) {
   return (
-    <div className="overflow-hidden rounded-lg border border-border shadow-card">
+    <a
+      href={GOOGLE_MAPS_LISTING_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative block overflow-hidden rounded-lg border border-border shadow-card"
+      aria-label="Open Frosty Aircons on Google Maps"
+    >
       <iframe
         title={title}
         src={MAP_EMBED_SRC}
@@ -227,8 +233,9 @@ export function MapEmbed({ title }: { title: string }) {
         height="320"
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-        style={{ border: 0 }}
+        style={{ border: 0, pointerEvents: "none" }}
       />
-    </div>
+      <span className="absolute inset-0" />
+    </a>
   );
 }

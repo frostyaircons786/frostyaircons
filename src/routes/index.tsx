@@ -280,15 +280,20 @@ function Index() {
                   </a>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-5 w-5 text-primary" />
+              <a
+                href={GOOGLE_MAPS_LISTING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 rounded-lg p-0 transition-colors hover:text-primary"
+              >
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                 <div>
                   <p className="font-[family-name:var(--font-display)] font-bold text-ink">
                     Address
                   </p>
-                  <p className="text-ink-soft">{BUSINESS.street}, Vadodara {BUSINESS.postalCode}</p>
+                  <p className="text-ink-soft transition-colors hover:text-primary">{BUSINESS.street}, Vadodara {BUSINESS.postalCode}</p>
                 </div>
-              </div>
+              </a>
               <div className="flex items-start gap-3">
                 <Clock className="mt-0.5 h-5 w-5 text-primary" />
                 <div>
