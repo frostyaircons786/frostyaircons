@@ -33,9 +33,11 @@ export function Footer() {
         {/* Company */}
         <div>
           <div className="flex items-center gap-2.5">
-            <span className="grid h-10 w-10 place-items-center rounded-md bg-white/10 text-white">
-              <FanIcon className="fan-spin-slow h-6 w-6" />
-            </span>
+            <img
+              src="/frosty-logo.png"
+              alt="Frosty Aircons"
+              className="h-10 w-auto object-contain"
+            />
             <span className="font-[family-name:var(--font-display)] text-lg font-bold text-white">
               Frosty Aircons
             </span>
